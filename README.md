@@ -16,14 +16,21 @@ A syslog sender by tailing from a batch of files.
 
 ```toml
 
+# listen and collect syslog
 [relayServer]
 bindAdress: 127.0.0.1
 port: 5141
+rateLimit: 1000
 
+
+# send to downstream server
 [server]
 bindAdress: 10.187.1.100
 port: 5141
 type: UDP
+rateLimit: 1000
+
+
 
 [[logger]]
 path: /var/log/**
